@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.wheel-container {
+    position: relative;
+}
+
+.wheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid #333;
+    overflow: hidden;
+    transform: rotate(0deg);
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: #fff;
+    text-align: center;
+    line-height: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    transform-origin: 100% 100%;
+}
+
+.shot { background: #ff5733; transform: rotate(0deg); }
+.kiss { background: #33ff57; transform: rotate(90deg); }
+.slap { background: #3357ff; transform: rotate(180deg); }
+.retry { background: #ff33a1; transform: rotate(270deg); }
+
+#spin {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#result {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#confetti {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.7;
+    animation: fall linear 5s infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
